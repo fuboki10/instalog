@@ -1,14 +1,17 @@
 import React from 'react';
 import TableHeader from './TableHeader';
 import TableBody from './TableBody';
+import { Event } from '../utils/types';
 
-interface TableProps {}
+interface TableProps {
+  events: Event[];
+}
 
-const Table: React.FC<TableProps> = () => {
+const Table: React.FC<TableProps> = ({ events }) => {
   return (
     <table className='min-w-full'>
       <TableHeader />
-      <TableBody />
+      <TableBody events={events} />
     </table>
   );
 };
