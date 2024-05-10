@@ -2,6 +2,7 @@ import React from 'react';
 import Table from './Table';
 import SearchBar from './SearchBar';
 import { Event } from '../utils/types';
+import LoadMore from './LoadMore';
 
 interface ActivityLogProps {}
 
@@ -55,6 +56,7 @@ const ActivityLog: React.FC<ActivityLogProps> = () => {
     <div className='mx-auto max-w-[80%] my-16 rounded-xl bg-[#f5f5f5]'>
       <SearchBar />
       <Table events={events} />
+      <LoadMore />
     </div>
   );
 };
