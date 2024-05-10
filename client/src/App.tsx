@@ -1,12 +1,12 @@
-import './App.css'
+import './App.css';
+import ActivityLog from './components/ActivityLog';
 
 function App() {
-
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-  )
+    <div>
+      <ActivityLog />
+    </div>
+  );
 }
 
-export default App
+export default App;
