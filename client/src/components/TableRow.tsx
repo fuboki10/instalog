@@ -19,7 +19,7 @@ const RowView: React.FC<ViewProps> = ({ event, onClick }) => (
       {event.target_name}
     </td>
     <td className='px-6 py-4 whitespace-nowrap text-start'>
-      {event.action.name}
+      {event.action_name}
     </td>
     <td className='px-6 py-4 whitespace-nowrap text-start'>
       {event.occurred_at.toLocaleString()}

@@ -1,25 +1,17 @@
-export interface Action {
-  id: string;
-  object: string;
-  name: string;
-}
-
-export interface Metadata {
-  redirect: string;
-  description: string;
-  x_request_id: string;
-}
-
 export interface Event {
   id: string;
   object: string;
   actor_id: string;
   actor_name: string;
   group: string;
-  action: Action;
+  action_id: string;
+  action_object: string;
+  action_name: string;
   target_id: string;
   target_name: string;
   location: string;
   occurred_at: Date;
-  metadata: Metadata;
+  metadata_redirect: string;
+  metadata_description: string;
+  metadata_x_request_id: string;
 }
