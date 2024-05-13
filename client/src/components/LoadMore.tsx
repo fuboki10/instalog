@@ -1,10 +1,15 @@
 import React from 'react';
 
-interface LoadMoreProps {}
+interface LoadMoreProps {
+  onClick: () => void;
+}
 
-const LoadMore: React.FC<LoadMoreProps> = () => {
+const LoadMore: React.FC<LoadMoreProps> = ({ onClick }) => {
   return (
-    <div className='py-4 px-4 text-center text-[#616161] font-bold'>
+    <div
+      onClick={onClick}
+      className='py-4 px-4 text-center text-[#616161] font-bold cursor-pointer hover:bg-[#f0f0f0]'
+    >
       LOAD MORE
     </div>
   );

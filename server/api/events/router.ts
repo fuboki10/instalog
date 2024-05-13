@@ -23,7 +23,9 @@ router.post('/', async (req: Request, res: Response) => {
 
 
 router.get('/', async (req: Request, res: Response) => {
-  const events = await getEvents();
+  const limit = parseInt(req.query.limit as string) || 5;
+  const offset = parseInt(req.query.offset as string) || 0;
+  const events = await getEvents({ limit, offset });
   res.json(events);
 });
 

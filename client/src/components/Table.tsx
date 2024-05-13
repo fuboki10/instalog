@@ -1,17 +1,20 @@
 import React from 'react';
 import TableHeader from './TableHeader';
 import TableBody from './TableBody';
-import { Event } from '../utils/types';
 
 interface TableProps {
-  events: Event[];
+  loadedPages: number;
 }
 
-const Table: React.FC<TableProps> = ({ events }) => {
+const Table: React.FC<TableProps> = ({ loadedPages }) => {
+  const pages = Array.from({ length: loadedPages }, (_, i) => i);
+
   return (
     <table className='min-w-full'>
       <TableHeader />
-      <TableBody events={events} />
+      {pages.map((page) => (
+        <TableBody page={page} />
+      ))}
     </table>
   );
 };
