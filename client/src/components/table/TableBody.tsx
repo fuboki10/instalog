@@ -2,6 +2,7 @@ import React from 'react';
 import TableRow from './TableRow';
 import useSWR from 'swr';
 import { Event } from '../../utils/types';
+import LoadingTable from './LoadingTable';
 
 interface TableBodyProps {
   page: number;
@@ -20,13 +21,18 @@ const TableBody: React.FC<TableBodyProps> = ({ page }) => {
     { refreshInterval: 5 * 1000 }
   );
 
-  if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error loading events</div>;
 
   return (
     <tbody className='min-w-full bg-white border-solid border-x-2 border-[#f5f5f5]'>
-      {data &&
-        data?.map((event, index) => <TableRow event={event} key={index} />)}
+      {isLoading ? (
+        <LoadingTable rows={PAGE_SIZE} />
+      ) : (
+        <>
+          {data &&
+            data?.map((event, index) => <TableRow event={event} key={index} />)}
+        </>
+      )}
     </tbody>
   );
 };
