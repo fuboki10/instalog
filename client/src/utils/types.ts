@@ -10,7 +10,7 @@ export interface Event {
   target_id: string;
   target_name: string;
   location: string;
-  occurred_at: Date;
+  occurred_at: string;
   metadata_redirect: string;
   metadata_description: string;
   metadata_x_request_id: string;

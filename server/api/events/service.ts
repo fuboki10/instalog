@@ -4,8 +4,9 @@ import { Event } from '../db/types';
 export async function getEvents(params: any = {
   limit: 5,
   offset: 0,
+  q: ""
 }): Promise<Event[]> {
-  const { limit, offset } = params;
+  const { limit, offset, q } = params;
   
   return prisma.event.findMany({
     take: limit,

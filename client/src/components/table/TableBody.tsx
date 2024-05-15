@@ -8,7 +8,7 @@ interface TableBodyProps {
   page: number;
 }
 
-const PAGE_SIZE = 1;
+const PAGE_SIZE = 3;
 
 const TableBody: React.FC<TableBodyProps> = ({ page }) => {
   const limit = PAGE_SIZE;

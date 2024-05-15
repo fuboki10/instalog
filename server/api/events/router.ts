@@ -25,11 +25,12 @@ router.post('/', async (req: Request, res: Response) => {
 router.get('/', async (req: Request, res: Response) => {
   const limit = parseInt(req.query.limit as string) || 5;
   const offset = parseInt(req.query.offset as string) || 0;
-  const events = await getEvents({ limit, offset });
+  const q = req.query.q as string || "";
+  const events = await getEvents({ limit, offset, q });
 
   // sleep
   await new Promise((resolve) => setTimeout(resolve, 2000));
-  
+
   res.json(events);
 });
 

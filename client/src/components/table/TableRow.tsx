@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Event } from '../../utils/types';
 import Hidden from '../utils/Hidden';
+import formatDateToCustomFormat from '../../utils/format';
 
 interface TableRowProps {
   event: Event;
@@ -23,7 +24,7 @@ const RowView: React.FC<ViewProps> = ({ event, onClick }) => (
       {event.action_name}
     </td>
     <td className='px-6 py-4 whitespace-nowrap text-start'>
-      {event.occurred_at.toLocaleString()}
+      {formatDateToCustomFormat(event.occurred_at)}
     </td>
     <td>
       <button onClick={onClick}>
@@ -96,7 +97,9 @@ const DetailedView: React.FC<ViewProps> = ({ event, onClick }) => {
             <h4 className='text-[#a3a3a3]'>DATE</h4>
             <div className='mt-4 grid grid-cols-[5rem,auto] grid-rows-3 gap-y-2 text-sm'>
               <p className='text-[#b9b9b9]'>Readable</p>
-              <p className='truncate'>{event.occurred_at.toLocaleString()}</p>
+              <p className='truncate'>
+                {formatDateToCustomFormat(event.occurred_at)}
+              </p>
             </div>
           </div>
 

@@ -1,11 +1,11 @@
 import React from 'react';
 import Table from './table/Table';
 import SearchBar from './SearchBar';
-import { Event } from '../utils/types';
 import LoadMore from './LoadMore';
 
 interface ActivityLogProps {}
 
+/*
 const events: Event[] = [
   {
     id: 'evt_15B56WILKW5K',
@@ -42,6 +42,7 @@ const events: Event[] = [
     metadata_x_request_id: 'req_W1Y13QOHMI5H',
   },
 ];
+*/
 
 const ActivityLog: React.FC<ActivityLogProps> = () => {
   const [loadedPages, setLoadedPages] = React.useState(1);
