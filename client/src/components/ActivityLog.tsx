@@ -46,11 +46,12 @@ const events: Event[] = [
 
 const ActivityLog: React.FC<ActivityLogProps> = () => {
   const [loadedPages, setLoadedPages] = React.useState(1);
+  const [q, setQ] = React.useState<string | undefined>(undefined);
 
   return (
     <div className='mx-auto max-w-[80%] my-16 rounded-xl bg-[#f5f5f5]'>
-      <SearchBar />
-      <Table loadedPages={loadedPages} />
+      <SearchBar onSearch={(v) => setQ(v)} />
+      <Table loadedPages={loadedPages} q={q} />
       <LoadMore onClick={() => setLoadedPages((last) => last + 1)} />
     </div>
   );

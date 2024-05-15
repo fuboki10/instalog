@@ -6,15 +6,18 @@ import LoadingTable from './LoadingTable';
 
 interface TableBodyProps {
   page: number;
+  q?: string;
 }
 
 const PAGE_SIZE = 3;
 
-const TableBody: React.FC<TableBodyProps> = ({ page }) => {
+const TableBody: React.FC<TableBodyProps> = ({ page, q }) => {
   const limit = PAGE_SIZE;
   const offset = page * limit;
   const { data, error, isLoading } = useSWR<Event[]>(
-    `http://localhost:8080/events?limit=${limit}&offset=${offset}`,
+    `http://localhost:8080/events?limit=${limit}&offset=${offset}${
+      q ? `&q=${q}` : ''
+    }`,
     (url) => {
       return fetch(url).then((res) => res.json());
     },
