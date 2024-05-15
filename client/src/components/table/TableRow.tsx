@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Event } from '../../utils/types';
 import Hidden from '../utils/Hidden';
 import formatDateToCustomFormat from '../../utils/format';
+import useOutsideClick from '../../utils/useOutsideClick';
+import useKeyDown from '../../utils/useKeyDown';
 
 interface TableRowProps {
   event: Event;
@@ -48,6 +50,13 @@ const RowView: React.FC<ViewProps> = ({ event, onClick }) => (
 );
 
 const DetailedView: React.FC<ViewProps> = ({ event, onClick }) => {
+  // on clock outside of the detailed view, close the detailed view
+  const wrapperRef = useRef(null);
+  useOutsideClick(wrapperRef, onClick);
+
+  // on click on esc key, close the detailed view
+  useKeyDown('Escape', onClick);
+
   return (
     <tr>
       <td className='relative scale-110' colSpan={4}>
@@ -68,7 +77,10 @@ const DetailedView: React.FC<ViewProps> = ({ event, onClick }) => {
             <line x1='6' y1='6' x2='18' y2='18' />
           </svg>
         </button>
-        <div className='my-4 bg-white grid grid-cols-3 grid-rows-2 gap-4 rounded-xl border border-gray-300 py-6 px-6'>
+        <div
+          ref={wrapperRef}
+          className='my-4 bg-white grid grid-cols-3 grid-rows-2 gap-4 rounded-xl border border-gray-300 py-6 px-6'
+        >
           <div>
             <h4 className='text-[#a3a3a3]'>ACTOR</h4>
             <div className='mt-4 grid grid-cols-[5rem,auto] grid-rows-3 gap-y-2 text-sm'>
