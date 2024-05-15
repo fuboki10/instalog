@@ -1,5 +1,5 @@
 import React from 'react';
-import Table from './Table';
+import Table from './table/Table';
 import SearchBar from './SearchBar';
 import { Event } from '../utils/types';
 import LoadMore from './LoadMore';

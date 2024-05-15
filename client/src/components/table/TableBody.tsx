@@ -1,7 +1,7 @@
 import React from 'react';
 import TableRow from './TableRow';
 import useSWR from 'swr';
-import { Event } from '../utils/types';
+import { Event } from '../../utils/types';
 
 interface TableBodyProps {
   page: number;
@@ -24,7 +24,7 @@ const TableBody: React.FC<TableBodyProps> = ({ page }) => {
   if (error) return <div>Error loading events</div>;
 
   return (
-    <tbody className='bg-white border-solid border-x-2 border-[#f5f5f5]'>
+    <tbody className='min-w-full bg-white border-solid border-x-2 border-[#f5f5f5]'>
       {data &&
         data?.map((event, index) => <TableRow event={event} key={index} />)}
     </tbody>
