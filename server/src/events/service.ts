@@ -26,6 +26,10 @@ export async function getEvents(
   });
 }
 
+export async function getEventById(id: string): Promise<Event | null> {
+  return prisma.event.findUnique({ where: { id } });
+}
+
 export async function createEvent(event: Event): Promise<Event> {
   return prisma.event.create({ data: event });
 }
