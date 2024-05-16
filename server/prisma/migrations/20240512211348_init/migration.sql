@@ -11,7 +11,7 @@ CREATE TABLE "Event" (
     "target_id" TEXT NOT NULL,
     "target_name" TEXT NOT NULL,
     "location" TEXT NOT NULL,
-    "occurred_at" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "occurred_at" TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "metadata_redirect" TEXT NOT NULL,
     "metadata_description" TEXT NOT NULL,
     "metadata_x_request_id" TEXT NOT NULL
