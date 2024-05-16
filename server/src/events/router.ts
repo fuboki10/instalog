@@ -8,7 +8,7 @@ router.post('/', async (req: Request, res: Response) => {
 
   try {
     const event = await createEvent(body);
-    
+
     res.status(201).json({
       message: 'Event created successfully',
       event,
@@ -21,15 +21,14 @@ router.post('/', async (req: Request, res: Response) => {
   }
 });
 
-
 router.get('/', async (req: Request, res: Response) => {
   const limit = parseInt(req.query.limit as string) || 5;
   const offset = parseInt(req.query.offset as string) || 0;
-  const q = req.query.q as string || "";
+  const q = (req.query.q as string) || '';
   const events = await getEvents({ limit, offset, q });
 
   // sleep
-  await new Promise((resolve) => setTimeout(resolve, 2000));
+  // await new Promise((resolve) => setTimeout(resolve, 2000));
 
   res.json(events);
 });
