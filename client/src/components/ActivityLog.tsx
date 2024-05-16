@@ -46,11 +46,16 @@ const events: Event[] = [
 
 const ActivityLog: React.FC<ActivityLogProps> = () => {
   const [loadedPages, setLoadedPages] = React.useState(1);
+  const [live, setLive] = React.useState(true);
   const [q, setQ] = React.useState<string | undefined>(undefined);
 
   return (
     <div className='mx-auto max-w-[80%] min-w-fit my-16 rounded-xl bg-[#f5f5f5]'>
-      <SearchBar onSearch={(v) => setQ(v)} />
+      <SearchBar
+        onSearch={(v) => setQ(v)}
+        onLive={() => setLive((prev) => !prev)}
+        live={live}
+      />
       <Table loadedPages={loadedPages} q={q} />
       <LoadMore onClick={() => setLoadedPages((last) => last + 1)} />
     </div>
