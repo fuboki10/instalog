@@ -7,11 +7,12 @@ import LoadingTable from './LoadingTable';
 interface TableBodyProps {
   page: number;
   q?: string;
+  live?: boolean;
 }
 
 const PAGE_SIZE = 3;
 
-const TableBody: React.FC<TableBodyProps> = ({ page, q }) => {
+const TableBody: React.FC<TableBodyProps> = ({ page, q, live }) => {
   const limit = PAGE_SIZE;
   const offset = page * limit;
   const { data, error, isLoading } = useSWR<Event[]>(
@@ -21,7 +22,11 @@ const TableBody: React.FC<TableBodyProps> = ({ page, q }) => {
     (url) => {
       return fetch(url).then((res) => res.json());
     },
-    { refreshInterval: 5 * 1000 }
+    {
+      refreshInterval: live ? 1000 : 0,
+      revalidateOnFocus: false,
+      revalidateOnReconnect: false,
+    }
   );
 
   if (error) return <div>Error loading events</div>;

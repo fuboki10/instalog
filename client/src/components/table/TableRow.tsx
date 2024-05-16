@@ -27,10 +27,10 @@ const RowView: React.FC<ViewProps> = ({ event, onClick }) => (
     <td className='flex gap-3 items-center px-6 py-4 text-start whitespace-nowrap'>
       <div
         className={`flex items-center justify-center h-7 w-7 uppercase text-center text-white font-bold text-sm rounded-full bg-gradient-to-tr ${mapNameToGradient(
-          event.actor_name
+          event.target_name
         )}`}
       >
-        {event.actor_name[0]}
+        {event.target_name[0]}
       </div>
       {event.target_name}
     </td>

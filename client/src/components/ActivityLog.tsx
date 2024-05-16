@@ -56,7 +56,7 @@ const ActivityLog: React.FC<ActivityLogProps> = () => {
         onLive={() => setLive((prev) => !prev)}
         live={live}
       />
-      <Table loadedPages={loadedPages} q={q} />
+      <Table loadedPages={loadedPages} q={q} live={live} />
       <LoadMore onClick={() => setLoadedPages((last) => last + 1)} />
     </div>
   );
