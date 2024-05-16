@@ -14,7 +14,7 @@ const Table: React.FC<TableProps> = ({ loadedPages, q }) => {
     <table className='min-w-full'>
       <TableHeader />
       {pages.map((page) => (
-        <TableBody page={page} q={q} />
+        <TableBody key={`page_${page}`} page={page} q={q} />
       ))}
     </table>
   );

@@ -10,7 +10,6 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
   useEffect(() => {
     // set time out to prevent too many requests
     const timeOutId = setTimeout(() => {
-      console.log(search);
       if (search === '') {
         onSearch(undefined);
         return;

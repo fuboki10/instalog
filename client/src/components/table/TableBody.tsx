@@ -15,9 +15,9 @@ const TableBody: React.FC<TableBodyProps> = ({ page, q }) => {
   const limit = PAGE_SIZE;
   const offset = page * limit;
   const { data, error, isLoading } = useSWR<Event[]>(
-    `http://localhost:8080/events?limit=${limit}&offset=${offset}${
-      q ? `&q=${q}` : ''
-    }`,
+    `${
+      import.meta.env.VITE_API_URL || 'http://localhost:8080'
+    }/events?limit=${limit}&offset=${offset}${q ? `&q=${q}` : ''}`,
     (url) => {
       return fetch(url).then((res) => res.json());
     },
