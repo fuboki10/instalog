@@ -1,6 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const NAME_GRADIENT_MAP: any = {
-  a: 'from-teal-400 to-yellow-200',
+  a: 'from-fuchsia-500 to-cyan-500',
   b: 'from-purple-400 to-red-200',
   c: 'from-green-400 to-blue-200',
   d: 'from-yellow-400 to-purple-200',
@@ -26,5 +26,5 @@ export const NAME_GRADIENT_MAP: any = {
   x: 'from-blue-400 to-teal-200',
   y: 'from-yellow-400 to-purple-200',
   z: 'from-red-400 to-green-200',
-  default: 'from-[#f5a623] to-[#f5a623]',
+  default: 'from-gray-400 to-gray-200',
 };

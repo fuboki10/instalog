@@ -16,7 +16,7 @@ interface ViewProps {
 }
 
 const mapNameToGradient = (name: string) => {
-  const key = name.toLowerCase();
+  const key = name[0].toLowerCase();
   return Object.prototype.hasOwnProperty.call(NAME_GRADIENT_MAP, key)
     ? NAME_GRADIENT_MAP[key]
     : NAME_GRADIENT_MAP.default;
@@ -26,7 +26,7 @@ const RowView: React.FC<ViewProps> = ({ event, onClick }) => (
   <tr key={event.id}>
     <td className='flex gap-3 items-center px-6 py-4 text-start whitespace-nowrap'>
       <div
-        className={`flex items-center justify-center h-7 w-7 text-center text-white font-bold text-sm rounded-full bg-gradient-to-tr ${mapNameToGradient(
+        className={`flex items-center justify-center h-7 w-7 uppercase text-center text-white font-bold text-sm rounded-full bg-gradient-to-tr ${mapNameToGradient(
           event.actor_name
         )}`}
       >
