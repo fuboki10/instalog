@@ -49,7 +49,7 @@ const ActivityLog: React.FC<ActivityLogProps> = () => {
   const [q, setQ] = React.useState<string | undefined>(undefined);
 
   return (
-    <div className='mx-auto max-w-[80%] my-16 rounded-xl bg-[#f5f5f5]'>
+    <div className='mx-auto max-w-[80%] min-w-fit my-16 rounded-xl bg-[#f5f5f5]'>
       <SearchBar onSearch={(v) => setQ(v)} />
       <Table loadedPages={loadedPages} q={q} />
       <LoadMore onClick={() => setLoadedPages((last) => last + 1)} />
